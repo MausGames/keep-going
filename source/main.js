@@ -35,13 +35,15 @@ APP.SETTINGS.Stencil = false;
 
 
 // ****************************************************************
-const NUM_ENEMIES     = 30;
+const NUM_ENEMIES     = 40;
 const NUM_FLOORS      = 3;
-const NUM_LEVELS      = 3;
-const HOLE_SIZE       = 7.0;
+const NUM_LEVELS      = 7;
+const HOLE_SIZE_MAX   = 7.0;
+const HOLE_SIZE_MIN   = 2.5;
 const HOLE_DIST       = 20.0;
 const HOLE_TIME_START = 0.1;
-const HOLE_TIME_GAIN  = 0.007;
+const HOLE_TIME_GAIN  = 0.006;
+const HOLE_TIME_MAX   = 50;
 const PLAYER_SPEED    = 1000.0;
 const PLAYER_BREAK    = 14.0;
 const ENEMY_RANGE     = 2.0;
@@ -127,7 +129,7 @@ APP.Render = function()
 // ****************************************************************
 APP.Move = function()
 {
-    if(g_iFallCount) g_fLevelTime += (HOLE_TIME_START + (g_iFallCount * HOLE_TIME_GAIN)) * WIND.g_fTime;
+    if(g_iFallCount) g_fLevelTime += (HOLE_TIME_START + (Math.min(g_iFallCount, HOLE_TIME_MAX) * HOLE_TIME_GAIN)) * WIND.g_fTime;
 
     g_pPlayer.Move();
 
@@ -159,7 +161,7 @@ APP.Move = function()
     if(!g_bFallState)
     {
         const fDiff = vec2.squaredDistance(g_apFloor[g_iCurFloor0].m_vHoleData, g_pPlayer.m_vPosition);
-        if(fDiff < UTILS.Pow2(g_apFloor[g_iCurFloor0].GetHoleSize()))
+        if(fDiff < UTILS.Pow2(Math.max(g_apFloor[g_iCurFloor0].GetHoleSize(), HOLE_SIZE_MIN)))
         {
             g_bFallState = true;
 

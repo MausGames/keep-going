@@ -37,7 +37,7 @@ constructor()
     this.m_apTexture[0] = new windTexture().Create(256, 256, false);
 
     this.m_sText        = "";
-    this.m_vHoleData    = vec3.fromValues(0.0, 0.0, HOLE_SIZE);
+    this.m_vHoleData    = vec3.fromValues(0.001, 0.001, HOLE_SIZE_MAX);
 }
 
 
@@ -87,7 +87,7 @@ SetText(sText, sText2)
 // ****************************************************************
 SetHoleSize(fValue)
 {
-    this.m_vHoleData[2] = HOLE_SIZE * UTILS.Clamp(fValue, -0.05, 1.0);
+    this.m_vHoleData[2] = HOLE_SIZE_MAX * UTILS.Clamp(fValue, -0.05, 1.0);
 }
 
 
