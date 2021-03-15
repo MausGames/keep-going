@@ -92,7 +92,7 @@ SetHoleSize(fValue)
 
 
 // ****************************************************************
-GetHoleSize(fValue)
+GetHoleSize()
 {
     return this.m_vHoleData[2];
 }
