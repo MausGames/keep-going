@@ -53,8 +53,8 @@ function CreateEnd()
         pEnemy.m_vPosition[1] = g_pPlayer.m_vPosition[1];
 
         UTILS.Vec2Direction(pEnemy.m_vVelocity, i * 0.2*Math.PI);
-        pEnemy.m_vVelocity[0] = pEnemy.m_vVelocity[0] * 50.0 * (Math.random() + 0.1) + g_pPlayer.m_vVelocity[0] * 1.0;
-        pEnemy.m_vVelocity[1] = pEnemy.m_vVelocity[1] * 50.0 * (Math.random() + 0.1) + g_pPlayer.m_vVelocity[1] * 1.0;
+        pEnemy.m_vVelocity[0] = pEnemy.m_vVelocity[0] * 50.0 * (UTILS.Rand() + 0.1) + g_pPlayer.m_vVelocity[0] * 1.0;
+        pEnemy.m_vVelocity[1] = pEnemy.m_vVelocity[1] * 50.0 * (UTILS.Rand() + 0.1) + g_pPlayer.m_vVelocity[1] * 1.0;
 
         pEnemy.m_nBehaviour = pEnemy.DefaultBehaviour;
     }
@@ -78,8 +78,8 @@ function Level00()
 {
     for(let i = 0; i < 10; ++i)
     {
-        const x = (Math.random() * 2.0 - 1.0) * 30.0;
-        const y = (Math.random() * 2.0 - 1.0) * 30.0;
+        const x = UTILS.RandFloat(-1.0, 1.0) * 30.0;
+        const y = UTILS.RandFloat(-1.0, 1.0) * 30.0;
 
         WIND.V[0] = x - LastHolePos()[0];
         WIND.V[1] = y - LastHolePos()[1];
@@ -96,7 +96,7 @@ function Level00()
         pEnemy.m_vPosition[0] = x;
         pEnemy.m_vPosition[1] = y;
 
-        UTILS.Vec2Direction(pEnemy.m_vVelocity, 2.0*Math.PI * Math.random());
+        UTILS.Vec2Direction(pEnemy.m_vVelocity, 2.0*Math.PI * UTILS.Rand());
         pEnemy.m_vVelocity[0] = pEnemy.m_vVelocity[0] * 20.0;
         pEnemy.m_vVelocity[1] = pEnemy.m_vVelocity[1] * 20.0;
 

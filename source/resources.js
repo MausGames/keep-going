@@ -40,10 +40,10 @@ RES.cFloor.s_sFragmentShader =
 "precision mediump float;"                                                                                +
 ""                                                                                                        +
 "uniform sampler2D u_s2Texture;"                                                                          +
-"uniform vec4 u_v4Color;"                                                                                 +
-"uniform vec3 u_v3HoleData;"                                                                              +
-"varying vec3 v_v3Relative;"                                                                              +
-"varying vec2 v_v2TexCoord;"                                                                              +
+"uniform vec4      u_v4Color;"                                                                            +
+"uniform vec3      u_v3HoleData;"                                                                         +
+"varying vec3      v_v3Relative;"                                                                         +
+"varying vec2      v_v2TexCoord;"                                                                         +
 ""                                                                                                        +
 "void main()"                                                                                             +
 "{"                                                                                                       +
@@ -255,8 +255,8 @@ RES.cPlayer.s_sFragmentShader =
 "precision mediump float;"                                                     +
 ""                                                                             +
 "uniform vec4 u_v4Color;"                                                      +
-"varying vec3  v_v3Relative;"                                                  +
-"varying vec3  v_v3Normal;"                                                    +
+"varying vec3 v_v3Relative;"                                                   +
+"varying vec3 v_v3Normal;"                                                     +
 ""                                                                             +
 "void main()"                                                                  +
 "{"                                                                            +
@@ -291,10 +291,9 @@ RES.cEnemy.s_sVertexShader =
 RES.cEnemy.s_sFragmentShader =
 "precision mediump float;"                                                               +
 ""                                                                                       +
-"uniform float u_fAlpha;"                                                                +
-"varying vec3  v_v3Relative;"                                                            +
-"varying vec3  v_v3Normal;"                                                              +
-"uniform vec4  u_v4Color;"                                                               +
+"uniform vec4 u_v4Color;"                                                                +
+"varying vec3 v_v3Relative;"                                                             +
+"varying vec3 v_v3Normal;"                                                               +
 ""                                                                                       +
 "void main()"                                                                            +
 "{"                                                                                      +

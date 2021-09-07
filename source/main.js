@@ -60,7 +60,7 @@ let g_iCurFloor0 = 0;
 let g_iCurFloor1 = 1;
 let g_iCurFloor2 = 2;
 
-let g_fCurColor     = Math.random();
+let g_fCurColor     = UTILS.Rand();
 let g_fCurHoleAngle = 0.5*Math.PI;
 
 let g_abInput = new Array(4);
@@ -166,7 +166,7 @@ APP.Move = function()
             g_bFallState = true;
 
             g_fCurColor     += 0.05;
-            g_fCurHoleAngle += 1.0*Math.PI + (1.0*Math.PI * (Math.random()-0.5));
+            g_fCurHoleAngle += 1.0*Math.PI + (1.0*Math.PI * UTILS.RandFloat(-0.5, 0.5));
 
             UTILS.Vec3HsvToRgb (g_apFloor[g_iCurFloor2].m_vColor,    g_fCurColor % 1.0, 0.6, 1.0);
             UTILS.Vec2Direction(g_apFloor[g_iCurFloor2].m_vHoleData, g_fCurHoleAngle);
@@ -178,7 +178,7 @@ APP.Move = function()
 
             CreateLevel(g_iLevelNext);
 
-            g_iLevelNext = Math.floor(g_iLevelNext + (1 + (NUM_LEVELS - 1) * Math.random())) % NUM_LEVELS;
+            g_iLevelNext = (g_iLevelNext + UTILS.RandInt(1, NUM_LEVELS - 1)) % NUM_LEVELS;
             g_fLevelTime = 0.0;
         }
     }
