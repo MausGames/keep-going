@@ -38,6 +38,9 @@ function CreateLevel(iType)
     case 4: Level04(); break;
     case 5: Level05(); break;
     case 6: Level06(); break;
+    case 7: Level07(); break;
+    case 8: Level08(); break;
+    case 9: Level09(); break;
     }
 }
 
@@ -135,7 +138,7 @@ function Level02()
     const iAxis = (Math.abs(LastHolePos()[0]) < Math.abs(LastHolePos()[1])) ? 1 : 0;
     const fSide = -Math.sign(LastHolePos()[iAxis]);
 
-    for(let i = 0, ie = 9; i < ie; ++i)
+    for(let i = 0; i < 9; ++i)
     {
         const pEnemy = CreateEnemy();
 
@@ -202,7 +205,7 @@ function Level05()
     const fSide1 = -Math.sign(LastHolePos()[0]);
     const fSide2 = -Math.sign(LastHolePos()[1]);
 
-    for(let i = 0, ie = 10; i < ie; ++i)
+    for(let i = 0; i < 10; ++i)
     {
         const pEnemy = CreateEnemy();
 
@@ -225,7 +228,7 @@ function Level06()
     const fSide1 = -Math.sign(LastHolePos()[iAxis]);
     const fSide2 = -Math.sign(LastHolePos()[1-iAxis]);
 
-    for(let i = 0, ie = 12; i < ie; ++i)
+    for(let i = 0; i < 12; ++i)
     {
         const pEnemy = CreateEnemy();
 
@@ -236,6 +239,72 @@ function Level06()
 
             this.m_vPosition[iAxis]   = fOffset * fSide1;
             this.m_vPosition[1-iAxis] = fValue  * fSide2;
+        };
+    }
+}
+
+
+// ****************************************************************
+let g_iLevel07Type = 0;
+function Level07()
+{
+    g_iLevel07Type += 1;
+
+    const iType   = g_iLevel07Type % 2;
+    const fBase   = UTILS.Vec2Angle(LastHolePos()) + 0.2*Math.PI;
+    const vCenter = vec2.clone(LastHolePos());
+
+    for(let i = 0; i < 15; ++i)
+    {
+        const pEnemy = CreateEnemy();
+
+        pEnemy.m_nBehaviour = function()
+        {
+            UTILS.Vec2Direction(WIND.V, fBase + (0.7*Math.PI * this.m_fTime + 2.0*Math.PI * (i / 5.0) - 0.15 * Math.floor(i/5)) * (iType ? 1.0 : -1.0));
+            const fOffset = 23.0 + 3.0 * Math.floor(i/5);
+
+            vec2.set(this.m_vPosition, WIND.V[0] * fOffset + vCenter[0], WIND.V[1] * fOffset + vCenter[1]);
+        };
+    }
+}
+
+
+// ****************************************************************
+function Level08()
+{
+    const vCenter = vec2.clone(NextHolePos());
+
+    for(let i = 0; i < 16; ++i)
+    {
+        const pEnemy = CreateEnemy();
+
+        pEnemy.m_nBehaviour = function()
+        {
+            UTILS.Vec2Direction(WIND.V, 2.0*Math.PI * (i / 16.0));
+            const fOffset = 7.0 + ((i % 2) ? 16.0 : 8.0) * this.m_fTime;
+
+            vec2.set(this.m_vPosition, WIND.V[0] * fOffset + vCenter[0], WIND.V[1] * fOffset + vCenter[1]);
+        };
+    }
+}
+
+
+// ****************************************************************
+function Level09()
+{
+    for(let i = 0; i < 16; ++i)
+    {
+        const pEnemy = CreateEnemy();
+
+        pEnemy.m_nBehaviour = function()
+        {
+            if(!this.m_bActive) return;
+
+            const x =           ((i % 4) - 1.5);
+            const y = (Math.floor(i / 4) - 1.5);
+
+            this.m_vPosition[0] = -0.5 * g_pPlayer.m_vPosition[0] + 6.0 * x + 5.0 * Math.sign(x);
+            this.m_vPosition[1] = -0.5 * g_pPlayer.m_vPosition[1] + 6.0 * y + 5.0 * Math.sign(y);
         };
     }
 }
