@@ -76,6 +76,7 @@ let g_fLevelTime = 0.0;
 
 let g_pMenuThanks  = null;
 let g_pMenuRestart = null;
+let g_pMenuName    = null;
 
 
 // ****************************************************************
@@ -96,6 +97,7 @@ APP.Init = function()
 
     g_pMenuThanks  = document.getElementById("text-thanks");
     g_pMenuRestart = document.getElementById("text-restart");
+    g_pMenuName    = document.getElementById("text-name");
 
     vec3.set(WIND.g_vCamPosition,    0.0, 0.0, 45.0);
     vec3.set(WIND.g_vCamTarget,      0.0, 0.0, 0.0);
@@ -131,6 +133,9 @@ APP.Render = function()
 // ****************************************************************
 APP.Move = function()
 {
+    const fIntro = UTILS.LerpHermite3(0.0, 1.0, UTILS.Clamp(2.5 - 0.7 * WIND.g_fTotalTime, 0.0, 1.0));
+    UTILS.SetElementOpacity(g_pMenuName, fIntro);
+
     if(g_iFallCount) g_fLevelTime += (HOLE_TIME_START + (Math.min(g_iFallCount, HOLE_TIME_MAX) * HOLE_TIME_GAIN)) * WIND.g_fTime;
 
     g_pPlayer.Move();
@@ -322,6 +327,9 @@ APP.Resize = function(sWidth, sMargin)
 
     g_pMenuRestart.style.width      = sWidth;
     g_pMenuRestart.style.marginLeft = sMargin;
+
+    g_pMenuName.style.width      = sWidth;
+    g_pMenuName.style.marginLeft = sMargin;
 };
 
 
