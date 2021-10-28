@@ -74,7 +74,8 @@ let g_iFallCount = 0;
 let g_iLevelNext = -1;
 let g_fLevelTime = 0.0;
 
-let g_pMenuThanks = null;
+let g_pMenuThanks  = null;
+let g_pMenuRestart = null;
 
 
 // ****************************************************************
@@ -93,7 +94,8 @@ APP.Init = function()
 
     g_apFloor[0].SetText("KEEP", "GOING");
 
-    g_pMenuThanks = document.getElementById("text-thanks");
+    g_pMenuThanks  = document.getElementById("text-thanks");
+    g_pMenuRestart = document.getElementById("text-restart");
 
     vec3.set(WIND.g_vCamPosition,    0.0, 0.0, 45.0);
     vec3.set(WIND.g_vCamTarget,      0.0, 0.0, 0.0);
@@ -151,8 +153,8 @@ APP.Move = function()
 
         if(!g_pPlayer.m_bActive)
         {
-            g_pMenuThanks.innerHTML = "<p>THANK YOU FOR PLAYING</p>";
-            UTILS.SetElementOpacity(g_pMenuThanks, 1.0);
+            UTILS.SetElementOpacity(g_pMenuThanks,  1.0);
+            UTILS.SetElementOpacity(g_pMenuRestart, 1.0);
 
             CreateEnd();
         }
@@ -163,23 +165,7 @@ APP.Move = function()
         const fDiff = vec2.squaredDistance(g_apFloor[g_iCurFloor0].m_vHoleData, g_pPlayer.m_vPosition);
         if(fDiff < UTILS.Pow2(Math.max(g_apFloor[g_iCurFloor0].GetHoleSize(), HOLE_SIZE_MIN)))
         {
-            g_bFallState = true;
-
-            g_fCurColor     += 0.05;
-            g_fCurHoleAngle += 1.0*Math.PI + (1.0*Math.PI * UTILS.RandFloat(-0.5, 0.5));
-
-            UTILS.Vec3HsvToRgb (g_apFloor[g_iCurFloor2].m_vColor,    g_fCurColor % 1.0, 0.6, 1.0);
-            UTILS.Vec2Direction(g_apFloor[g_iCurFloor2].m_vHoleData, g_fCurHoleAngle);
-
-            g_apFloor[g_iCurFloor2].m_vHoleData[0] *= HOLE_DIST;
-            g_apFloor[g_iCurFloor2].m_vHoleData[1] *= HOLE_DIST;
-
-            for(let i = 0; i < NUM_ENEMIES; ++i) g_apEnemy[i].m_bActive = false;
-
-            CreateLevel(g_iLevelNext);
-
-            g_iLevelNext = (g_iLevelNext + UTILS.RandInt(1, NUM_LEVELS - 1)) % NUM_LEVELS;
-            g_fLevelTime = 0.0;
+            FallDown();
         }
     }
 
@@ -273,6 +259,23 @@ APP.KeyUp = function(iKey)
     if((iKey === UTILS.KEY.RIGHT) || (iKey === UTILS.KEY.D)) g_abInput[1] = false;
     if((iKey === UTILS.KEY.DOWN)  || (iKey === UTILS.KEY.S)) g_abInput[2] = false;
     if((iKey === UTILS.KEY.UP)    || (iKey === UTILS.KEY.W)) g_abInput[3] = false;
+
+    if(iKey === UTILS.KEY.R)
+    {
+        if(!g_pPlayer.m_bActive)
+        {
+            g_pPlayer = new cPlayer();
+            g_pPlayer.Move();
+        }
+
+        g_iFallCount =  0;
+        g_iLevelNext = -1;
+
+        FallDown();
+
+        UTILS.SetElementOpacity(g_pMenuThanks,  0.0);
+        UTILS.SetElementOpacity(g_pMenuRestart, 0.0);
+    }
 };
 
 
@@ -316,4 +319,30 @@ APP.Resize = function(sWidth, sMargin)
 {
     g_pMenuThanks.style.width      = sWidth;
     g_pMenuThanks.style.marginLeft = sMargin;
+
+    g_pMenuRestart.style.width      = sWidth;
+    g_pMenuRestart.style.marginLeft = sMargin;
 };
+
+
+// ****************************************************************
+function FallDown()
+{
+    g_bFallState = true;
+
+    g_fCurColor     += 0.05;
+    g_fCurHoleAngle += 1.0*Math.PI + (1.0*Math.PI * UTILS.RandFloat(-0.5, 0.5));
+
+    UTILS.Vec3HsvToRgb (g_apFloor[g_iCurFloor2].m_vColor,    g_fCurColor % 1.0, 0.6, 1.0);
+    UTILS.Vec2Direction(g_apFloor[g_iCurFloor2].m_vHoleData, g_fCurHoleAngle);
+
+    g_apFloor[g_iCurFloor2].m_vHoleData[0] *= HOLE_DIST;
+    g_apFloor[g_iCurFloor2].m_vHoleData[1] *= HOLE_DIST;
+
+    for(let i = 0; i < NUM_ENEMIES; ++i) g_apEnemy[i].m_bActive = false;
+
+    CreateLevel(g_iLevelNext);
+
+    g_iLevelNext = (g_iLevelNext + UTILS.RandInt(1, NUM_LEVELS - 1)) % NUM_LEVELS;
+    g_fLevelTime = 0.0;
+}

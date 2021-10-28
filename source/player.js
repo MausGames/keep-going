@@ -38,6 +38,7 @@ constructor()
     this.m_vVelocity  = vec3.create();
 
     this.m_bActive    = true;
+    this.m_fIntro     = 0.0;
     this.m_fExplosion = 0.0;
 }
 
@@ -73,13 +74,15 @@ Move()
 
         this.m_vPosition[0] = this.m_vPosition[0] + this.m_vVelocity[0] * WIND.g_fTime;
         this.m_vPosition[1] = this.m_vPosition[1] + this.m_vVelocity[1] * WIND.g_fTime;
+
+        this.m_fIntro = Math.min(this.m_fIntro + 3.0 * WIND.g_fTime, 1.0);
     }
     else
     {
         this.m_fExplosion = Math.min(this.m_fExplosion + 3.0 * WIND.g_fTime, 1.0);
     }
 
-    const fSize = 1.2 + 3.0 * this.m_fExplosion;
+    const fSize = 1.2 * this.m_fIntro + 3.0 * this.m_fExplosion;
     vec3.set(this.m_vSize, fSize, fSize, fSize);
 
     this.m_vColor[3] = 1.0 - this.m_fExplosion;
