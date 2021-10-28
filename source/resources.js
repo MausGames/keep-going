@@ -37,32 +37,32 @@ RES.cFloor.s_sVertexShader =
 "}";
 
 RES.cFloor.s_sFragmentShader =
-"precision mediump float;"                                                                                +
-""                                                                                                        +
-"uniform sampler2D u_s2Texture;"                                                                          +
-"uniform vec4      u_v4Color;"                                                                            +
-"uniform vec3      u_v3HoleData;"                                                                         +
-"varying vec3      v_v3Relative;"                                                                         +
-"varying vec2      v_v2TexCoord;"                                                                         +
-""                                                                                                        +
-"void main()"                                                                                             +
-"{"                                                                                                       +
-"    const vec3 v3Camera = vec3(0.0, 0.0, -1.0);"                                                         +
-""                                                                                                        +
-"    vec3 v3Texel = vec3(1.0);"                                                                           +
-"    if(mod(v_v2TexCoord.x + float(mod(v_v2TexCoord.y, 2.0) < 1.0), 2.0) < 1.0)"                          +
-"        v3Texel = texture2D(u_s2Texture, v_v2TexCoord).rgb;"                                             +
-""                                                                                                        +
-"    float fIntensity  = 1.0;"                                                                            +
-"          fIntensity *= dot(normalize(v_v3Relative), v3Camera);"                                         +
-"          fIntensity *= inversesqrt(dot(v_v3Relative, v_v3Relative)) * 45.0;"                            +
-""                                                                                                        +
-"    float fDist   = distance(v_v3Relative.xy, u_v3HoleData.xy);"                                         +
-"    float fDist2  = distance(v_v3Relative.xy, u_v3HoleData.xy * 0.96);"                                  +
-"    float fBorder = smoothstep(u_v3HoleData.z,        u_v3HoleData.z        + 0.2, fDist);"              +
-"    float fHole   = smoothstep(u_v3HoleData.z * 0.96, u_v3HoleData.z * 0.96 + 0.2, fDist2);"             +
-""                                                                                                        +
-"    gl_FragColor = vec4(v3Texel * fIntensity * (0.3 + 0.7 * fBorder), max(fBorder, fHole)) * u_v4Color;" +
+"precision mediump float;"                                                                                 +
+""                                                                                                         +
+"uniform sampler2D u_s2Texture;"                                                                           +
+"uniform vec4      u_v4Color;"                                                                             +
+"uniform vec3      u_v3HoleData;"                                                                          +
+"varying vec3      v_v3Relative;"                                                                          +
+"varying vec2      v_v2TexCoord;"                                                                          +
+""                                                                                                         +
+"void main()"                                                                                              +
+"{"                                                                                                        +
+"    const vec3 v3Camera = vec3(0.0, 0.0, -1.0);"                                                          +
+""                                                                                                         +
+"    vec3 v3Texel = vec3(1.0);"                                                                            +
+"    if(mod(v_v2TexCoord.x + float(mod(v_v2TexCoord.y, 2.0) < 1.0), 2.0) < 1.0)"                           +
+"        v3Texel = texture2D(u_s2Texture, v_v2TexCoord).rgb;"                                              +
+""                                                                                                         +
+"    float v1Intensity  = 1.0;"                                                                            +
+"          v1Intensity *= dot(normalize(v_v3Relative), v3Camera);"                                         +
+"          v1Intensity *= inversesqrt(dot(v_v3Relative, v_v3Relative)) * 45.0;"                            +
+""                                                                                                         +
+"    float fDist   = distance(v_v3Relative.xy, u_v3HoleData.xy);"                                          +
+"    float fDist2  = distance(v_v3Relative.xy, u_v3HoleData.xy * 0.96);"                                   +
+"    float fBorder = smoothstep(u_v3HoleData.z,        u_v3HoleData.z        + 0.2, fDist);"               +
+"    float fHole   = smoothstep(u_v3HoleData.z * 0.96, u_v3HoleData.z * 0.96 + 0.2, fDist2);"              +
+""                                                                                                         +
+"    gl_FragColor = vec4(v3Texel * v1Intensity * (0.3 + 0.7 * fBorder), max(fBorder, fHole)) * u_v4Color;" +
 "}";
 
 
@@ -252,22 +252,22 @@ RES.cPlayer.s_sVertexShader =
 "}";
 
 RES.cPlayer.s_sFragmentShader =
-"precision mediump float;"                                                     +
-""                                                                             +
-"uniform vec4 u_v4Color;"                                                      +
-"varying vec3 v_v3Relative;"                                                   +
-"varying vec3 v_v3Normal;"                                                     +
-""                                                                             +
-"void main()"                                                                  +
-"{"                                                                            +
-"    const vec3 v3Camera = vec3(0.0, 0.0, -1.0);"                              +
-"    const vec3 v3Light  = vec3(0.0, 0.0,  1.0);"                              +
-""                                                                             +
-"    float fIntensity  = dot(normalize(v_v3Normal), v3Light) * 0.5 + 0.5;"     +
-"          fIntensity *= dot(normalize(v_v3Relative), v3Camera);"              +
-"          fIntensity *= inversesqrt(dot(v_v3Relative, v_v3Relative)) * 45.0;" +
-""                                                                             +
-"    gl_FragColor = vec4(vec3(fIntensity), u_v4Color.a);"                      +
+"precision mediump float;"                                                      +
+""                                                                              +
+"uniform vec4 u_v4Color;"                                                       +
+"varying vec3 v_v3Relative;"                                                    +
+"varying vec3 v_v3Normal;"                                                      +
+""                                                                              +
+"void main()"                                                                   +
+"{"                                                                             +
+"    const vec3 v3Camera = vec3(0.0, 0.0, -1.0);"                               +
+"    const vec3 v3Light  = vec3(0.0, 0.0,  1.0);"                               +
+""                                                                              +
+"    float v1Intensity  = dot(normalize(v_v3Normal), v3Light) * 0.5 + 0.5;"     +
+"          v1Intensity *= dot(normalize(v_v3Relative), v3Camera);"              +
+"          v1Intensity *= inversesqrt(dot(v_v3Relative, v_v3Relative)) * 45.0;" +
+""                                                                              +
+"    gl_FragColor = vec4(vec3(v1Intensity), u_v4Color.a);"                      +
 "}";
 
 
@@ -289,20 +289,20 @@ RES.cEnemy.s_sVertexShader =
 "}";
 
 RES.cEnemy.s_sFragmentShader =
-"precision mediump float;"                                                               +
-""                                                                                       +
-"uniform vec4 u_v4Color;"                                                                +
-"varying vec3 v_v3Relative;"                                                             +
-"varying vec3 v_v3Normal;"                                                               +
-""                                                                                       +
-"void main()"                                                                            +
-"{"                                                                                      +
-"    const vec3 v3Camera = vec3(0.0, 0.0, -1.0);"                                        +
-"    const vec3 v3Light  = vec3(0.0, 0.0,  1.0);"                                        +
-""                                                                                       +
-"    float fIntensity  = 1.0 - 0.9 * (dot(normalize(v_v3Normal), v3Light) * 0.5 + 0.5);" +
-"          fIntensity *= dot(normalize(v_v3Relative), v3Camera);"                        +
-"          fIntensity *= inversesqrt(dot(v_v3Relative, v_v3Relative)) * 45.0;"           +
-""                                                                                       +
-"    gl_FragColor = vec4(vec3(fIntensity), u_v4Color.a);"                                +
+"precision mediump float;"                                                                +
+""                                                                                        +
+"uniform vec4 u_v4Color;"                                                                 +
+"varying vec3 v_v3Relative;"                                                              +
+"varying vec3 v_v3Normal;"                                                                +
+""                                                                                        +
+"void main()"                                                                             +
+"{"                                                                                       +
+"    const vec3 v3Camera = vec3(0.0, 0.0, -1.0);"                                         +
+"    const vec3 v3Light  = vec3(0.0, 0.0,  1.0);"                                         +
+""                                                                                        +
+"    float v1Intensity  = 1.0 - 0.9 * (dot(normalize(v_v3Normal), v3Light) * 0.5 + 0.5);" +
+"          v1Intensity *= dot(normalize(v_v3Relative), v3Camera);"                        +
+"          v1Intensity *= inversesqrt(dot(v_v3Relative, v_v3Relative)) * 45.0;"           +
+""                                                                                        +
+"    gl_FragColor = vec4(vec3(v1Intensity), u_v4Color.a);"                                +
 "}";
