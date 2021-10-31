@@ -10,6 +10,11 @@ Keep Going is a **fast-paced reaction-skill game** made in less than eight hours
 
 #
 
+**Browser Version:**  
+<https://mausgames.itch.io/keep-going>
+
+#
+
 <table>
     <tr>
         <td><a href="material/screenshots/keg_screen_001.jpg?raw=true"><img src="material/screenshots/keg_screen_001t.jpg" /></a></td>
