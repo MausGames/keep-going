@@ -13,6 +13,10 @@ Keep Going is a **fast-paced reaction-skill game** made in less than eight hours
 **Browser Version:**  
 <https://mausgames.itch.io/keep-going>
 
+**Music:**  
+by Kevin MacLeod (<https://incompetech.com/music/royalty-free/index.html?genre=Jazz>)  
+Licensed under CC BY (<https://creativecommons.org/licenses/by/4.0/>)
+
 #
 
 <table>
