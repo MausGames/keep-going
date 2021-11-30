@@ -103,13 +103,11 @@ APP.Init = function()
     vec3.set(WIND.g_vCamTarget,      0.0, 0.0, 0.0);
     vec3.set(WIND.g_vCamOrientation, 0.0, 1.0, 0.0);
 
-    WIND.g_pAudioStream.Load("data/music/Local_Forecast_Slower");
-    WIND.g_pAudioStream.Play();
-
     WIND.g_pAudioStream.addEventListener("ended", function()
     {
         this.Play();
     });
+    WIND.g_pAudioStream.Play();
 };
 
 
