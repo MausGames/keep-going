@@ -15,10 +15,10 @@ People
 Resources
 
 Music
-- Kevin MacLeod : Local Forecast - Slower (CC BY)
+- Kevin MacLeod : Local Forecast - Slower : music/Local_Forecast_Slower.* (CC BY)
 
 Fonts
-- Google : Noto Sans (OFL)
+- Google : Noto Sans : fonts/default.* (OFL)
 
 
 -------------------------------------------------------------------

@@ -357,6 +357,6 @@ function FallDown()
 
     CreateLevel(g_iLevelNext);
 
-    g_iLevelNext = (g_iLevelNext + UTILS.RandInt(1, NUM_LEVELS - 1)) % NUM_LEVELS;
+    g_iLevelNext = (g_iLevelNext + UTILS.RandUint(1, NUM_LEVELS - 1)) % NUM_LEVELS;
     g_fLevelTime = 0.0;
 }
