@@ -17,6 +17,10 @@ Resources
 Music
 - Kevin MacLeod : Local Forecast - Slower : music/Local_Forecast_Slower.* (CC BY)
 
+Sounds
+- J.BoB : Game Sound Collection (licensed, https://jbobsound.com)
+- themfish : bamf : sounds/death.wav (CC BY)
+
 Fonts
 - Google : Noto Sans : fonts/default.* (OFL)
 

@@ -61,6 +61,8 @@ function CreateEnd()
 
         pEnemy.m_nBehaviour = pEnemy.DefaultBehaviour;
     }
+
+    g_pDeathSound.Play();
 }
 
 
@@ -234,7 +236,7 @@ function Level06()
 
         pEnemy.m_nBehaviour = function()
         {
-            const fValue  = Math.cos(0.4*Math.PI * this.m_fTime + 1.0*Math.PI * (Math.floor(i/2) % 2) + 0.1 * (i - 5.5)) * 30.0;
+            const fValue  = Math.cos(0.4*Math.PI * this.m_fTime + 1.0*Math.PI * (UTILS.ToUint(i/2) % 2) + 0.1 * (i - 5.5)) * 30.0;
             const fOffset = (i - 5.5) * 5.0;
 
             this.m_vPosition[iAxis]   = fOffset * fSide1;
@@ -260,8 +262,8 @@ function Level07()
 
         pEnemy.m_nBehaviour = function()
         {
-            UTILS.Vec2Direction(WIND.V, fBase + (0.7*Math.PI * this.m_fTime + 2.0*Math.PI * (i / 5.0) - 0.15 * Math.floor(i/5)) * (iType ? 1.0 : -1.0));
-            const fOffset = 23.0 + 3.0 * Math.floor(i/5);
+            UTILS.Vec2Direction(WIND.V, fBase + (0.7*Math.PI * this.m_fTime + 2.0*Math.PI * (i / 5.0) - 0.15 * UTILS.ToUint(i/5)) * (iType ? 1.0 : -1.0));
+            const fOffset = 23.0 + 3.0 * UTILS.ToUint(i/5);
 
             vec2.set(this.m_vPosition, WIND.V[0] * fOffset + vCenter[0], WIND.V[1] * fOffset + vCenter[1]);
         };
@@ -300,8 +302,8 @@ function Level09()
         {
             if(!this.m_bActive) return;
 
-            const x =           ((i % 4) - 1.5);
-            const y = (Math.floor(i / 4) - 1.5);
+            const x =             ((i % 4) - 1.5);
+            const y = (UTILS.ToUint(i / 4) - 1.5);
 
             this.m_vPosition[0] = -0.5 * g_pPlayer.m_vPosition[0] + 6.0 * x + 5.0 * Math.sign(x);
             this.m_vPosition[1] = -0.5 * g_pPlayer.m_vPosition[1] + 6.0 * y + 5.0 * Math.sign(y);

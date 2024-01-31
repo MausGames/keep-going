@@ -78,6 +78,9 @@ let g_pMenuThanks  = null;
 let g_pMenuRestart = null;
 let g_pMenuName    = null;
 
+let g_pWooshSound = null;
+let g_pDeathSound = null;
+
 
 // ****************************************************************
 APP.Init = function()
@@ -98,6 +101,10 @@ APP.Init = function()
     g_pMenuThanks  = document.getElementById("text-thanks");
     g_pMenuRestart = document.getElementById("text-restart");
     g_pMenuName    = document.getElementById("text-name");
+
+    g_pWooshSound = new windSound().Load("data/sounds/woosh.wav");
+    g_pDeathSound = new windSound().Load("data/sounds/death.wav");
+    g_pWooshSound.SetVolume(0.5);
 
     vec3.set(WIND.g_vCamPosition,    0.0, 0.0, 45.0);
     vec3.set(WIND.g_vCamTarget,      0.0, 0.0, 0.0);
@@ -359,4 +366,6 @@ function FallDown()
 
     g_iLevelNext = (g_iLevelNext + UTILS.RandUint(1, NUM_LEVELS - 1)) % NUM_LEVELS;
     g_fLevelTime = 0.0;
+
+    g_pWooshSound.Play();
 }
