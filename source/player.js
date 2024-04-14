@@ -56,10 +56,10 @@ Move()
     if(this.m_bActive)
     {
         vec2.zero(this.m_vMove);
-             if(g_abInput[0]) this.m_vMove[0] = -1.0;
-        else if(g_abInput[1]) this.m_vMove[0] =  1.0;
-             if(g_abInput[2]) this.m_vMove[1] = -1.0;
-        else if(g_abInput[3]) this.m_vMove[1] =  1.0;
+        if(g_abInput[0]) this.m_vMove[0] -= 1.0;
+        if(g_abInput[1]) this.m_vMove[0] += 1.0;
+        if(g_abInput[2]) this.m_vMove[1] -= 1.0;
+        if(g_abInput[3]) this.m_vMove[1] += 1.0;
 
         vec2.zero(WIND.V);
         if(vec2.sqrLen(this.m_vMove) !== 0.0)
