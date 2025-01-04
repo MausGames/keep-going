@@ -21,9 +21,9 @@ Licensed under CC BY (<https://creativecommons.org/licenses/by/4.0/>)
 
 <table>
     <tr>
-        <td><a href="material/screenshots/keg_screen_001.jpg?raw=true"><img src="material/screenshots/keg_screen_001t.jpg"></a></td>
-        <td><a href="material/screenshots/keg_screen_002.jpg?raw=true"><img src="material/screenshots/keg_screen_002t.jpg"></a></td>
-        <td><a href="material/screenshots/keg_screen_003.jpg?raw=true"><img src="material/screenshots/keg_screen_003t.jpg"></a></td>
+        <td><a href="material/screenshots/keg_screen_004.jpg?raw=true"><img src="material/screenshots/keg_screen_004t.jpg"></a></td>
+        <td><a href="material/screenshots/keg_screen_005.jpg?raw=true"><img src="material/screenshots/keg_screen_005t.jpg"></a></td>
+        <td><a href="material/screenshots/keg_screen_006.jpg?raw=true"><img src="material/screenshots/keg_screen_006t.jpg"></a></td>
     </tr>
 </table>
 
