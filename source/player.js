@@ -40,6 +40,8 @@ constructor()
     this.m_bActive    = true;
     this.m_fIntro     = 0.0;
     this.m_fExplosion = 0.0;
+
+    this.m_pGhost     = new cGhost(this);
 }
 
 
@@ -47,6 +49,8 @@ constructor()
 Render()
 {
     super.Render();
+
+    this.m_pGhost.Render();
 }
 
 
@@ -88,6 +92,8 @@ Move()
     this.m_vColor[3] = 1.0 - this.m_fExplosion;
 
     super.Move();
+
+    this.m_pGhost.Move();
 }
 
 
