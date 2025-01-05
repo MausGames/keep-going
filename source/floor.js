@@ -69,7 +69,7 @@ SetText(sText, sText2)
 
     vec2.set(WIND.V, TEX.width / 2, TEX.height / 4);
 
-    TEX.DRAW.font         = (sText2 ? "55" : "70") + "px default_font";
+    TEX.DRAW.font         = (sText2 ? "55" : "70") + "px supply";
     TEX.DRAW.textAlign    = "center";
     TEX.DRAW.textBaseline = "middle";
 

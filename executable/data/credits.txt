@@ -23,6 +23,7 @@ Sounds
 
 Fonts
 - Google : Noto Sans : fonts/default.* (OFL)
+- Niskala Huruf : Supply Center : fonts/supply.* (freeware)
 
 
 -------------------------------------------------------------------

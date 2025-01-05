@@ -1,12 +1,12 @@
 /* default font-face */
 @font-face
 {
-    font-family: 'default_font';
+    font-family: 'supply';
     font-weight: normal;
     font-style: normal;
-    src: url('../fonts/default.woff2') format('woff2'),
-         url('../fonts/default.woff') format('woff'),
-         url('../fonts/default.ttf') format('truetype');
+    src: url('../fonts/supply.woff2') format('woff2'),
+         url('../fonts/supply.woff') format('woff'),
+         url('../fonts/supply.ttf') format('truetype');
 }
 
 /* global style */
@@ -74,7 +74,7 @@ p
 /* centered and side division */
 .middle, .side
 {
-    font-family: default_font, serif;
+    font-family: supply, serif;
     position: absolute;
     opacity: 0.0;
     pointer-events: none;
