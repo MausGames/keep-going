@@ -146,7 +146,7 @@ APP.Render = function()
 // ****************************************************************
 APP.Move = function()
 {
-    const fIntro = UTILS.LerpHermite3(0.0, 1.0, UTILS.Clamp(2.5 - 0.7 * WIND.g_fTotalTime, 0.0, 1.0));
+    const fIntro = UTILS.LerpHermite3(0.0, 1.0, UTILS.Clamp(2.5 - 0.5 * WIND.g_fTotalTime, 0.0, 1.0));
     UTILS.SetElementOpacity(g_pMenuName, fIntro);
 
     if(g_iFallCount) g_fLevelTime += (HOLE_TIME_START + (Math.min(g_iFallCount, HOLE_TIME_MAX) * HOLE_TIME_GAIN)) * WIND.g_fTime;

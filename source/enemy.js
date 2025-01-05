@@ -29,7 +29,7 @@ constructor()
 {
     super();
 
-    vec3.set(this.m_vSize, 1.5, 1.5, 1.5);
+    vec3.set(this.m_vSize, 1.75, 1.75, 1.75);
     this.m_pModel     = cPlayer.s_pModel;
     this.m_pShader    = cEnemy.s_pShader;
 

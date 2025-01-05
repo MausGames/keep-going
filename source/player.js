@@ -86,10 +86,10 @@ Move()
         this.m_fExplosion = Math.min(this.m_fExplosion + 3.0 * WIND.g_fTime, 1.0);
     }
 
-    const fSize = 1.2 * this.m_fIntro + 3.0 * this.m_fExplosion;
+    const fSize = 1.4 * this.m_fIntro + 5.0 * this.m_fExplosion;
     vec3.set(this.m_vSize, fSize, fSize, fSize);
 
-    this.m_vColor[3] = 1.0 - this.m_fExplosion;
+    this.m_vColor[3] = UTILS.LerpHermite3(1.0, 0.0, this.m_fExplosion);
 
     super.Move();
 
