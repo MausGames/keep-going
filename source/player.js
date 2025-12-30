@@ -7,22 +7,22 @@
 //*------------------------------------------------*//
 //////////////////////////////////////////////////////
 "use strict";
-class cPlayer extends windObject {
+class CPlayer extends windObject {
 
 
 // ****************************************************************
 static Init()
 {
-    cPlayer.s_pModel  = new windModel ().Create(RES.cPlayer.s_afVertexData,  RES.cPlayer.s_aiIndexData);
-    cPlayer.s_pShader = new windShader().Create(RES.cPlayer.s_sVertexShader, RES.cPlayer.s_sFragmentShader);
+    CPlayer.s_pModel  = new windModel ().Create(RES.CPlayer.s_afVertexData,  RES.CPlayer.s_aiIndexData);
+    CPlayer.s_pShader = new windShader().Create(RES.CPlayer.s_sVertexShader, RES.CPlayer.s_sFragmentShader);
 }
 
 
 // ****************************************************************
 static Exit()
 {
-    cPlayer.s_pModel .Destructor();
-    cPlayer.s_pShader.Destructor();
+    CPlayer.s_pModel .Destructor();
+    CPlayer.s_pShader.Destructor();
 }
 
 
@@ -31,8 +31,8 @@ constructor()
 {
     super();
 
-    this.m_pModel     = cPlayer.s_pModel;
-    this.m_pShader    = cPlayer.s_pShader;
+    this.m_pModel     = CPlayer.s_pModel;
+    this.m_pShader    = CPlayer.s_pShader;
 
     this.m_vMove      = vec2.create();
     this.m_vVelocity  = vec3.create();
@@ -41,7 +41,7 @@ constructor()
     this.m_fIntro     = 0.0;
     this.m_fExplosion = 0.0;
 
-    this.m_pGhost     = new cGhost(this);
+    this.m_pGhost     = new CGhost(this);
 }
 
 
@@ -97,4 +97,4 @@ Move()
 }
 
 
-} // class cPlayer
+} // class CPlayer

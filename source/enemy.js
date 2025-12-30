@@ -7,20 +7,20 @@
 //*------------------------------------------------*//
 //////////////////////////////////////////////////////
 "use strict";
-class cEnemy extends windObject {
+class CEnemy extends windObject {
 
 
 // ****************************************************************
 static Init()
 {
-    cEnemy.s_pShader = new windShader().Create(RES.cEnemy.s_sVertexShader, RES.cEnemy.s_sFragmentShader);
+    CEnemy.s_pShader = new windShader().Create(RES.CEnemy.s_sVertexShader, RES.CEnemy.s_sFragmentShader);
 }
 
 
 // ****************************************************************
 static Exit()
 {
-    cEnemy.s_pShader.Destructor();
+    CEnemy.s_pShader.Destructor();
 }
 
 
@@ -30,8 +30,8 @@ constructor()
     super();
 
     vec3.set(this.m_vSize, 1.75, 1.75, 1.75);
-    this.m_pModel     = cPlayer.s_pModel;
-    this.m_pShader    = cEnemy.s_pShader;
+    this.m_pModel     = CPlayer.s_pModel;
+    this.m_pShader    = CEnemy.s_pShader;
 
     this.m_vMove      = vec2.create();
     this.m_vVelocity  = vec3.create();
@@ -91,4 +91,4 @@ DefaultBehaviour()
 }
 
 
-} // class cEnemy
+} // class CEnemy

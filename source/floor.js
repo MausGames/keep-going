@@ -7,22 +7,22 @@
 //*------------------------------------------------*//
 //////////////////////////////////////////////////////
 "use strict";
-class cFloor extends windObject {
+class CFloor extends windObject {
 
 
 // ****************************************************************
 static Init()
 {
-    cFloor.s_pModel  = new windModel ().Create(RES.cFloor.s_afVertexData,  RES.cFloor.s_aiIndexData);
-    cFloor.s_pShader = new windShader().Create(RES.cFloor.s_sVertexShader, RES.cFloor.s_sFragmentShader);
+    CFloor.s_pModel  = new windModel ().Create(RES.CFloor.s_afVertexData,  RES.CFloor.s_aiIndexData);
+    CFloor.s_pShader = new windShader().Create(RES.CFloor.s_sVertexShader, RES.CFloor.s_sFragmentShader);
 }
 
 
 // ****************************************************************
 static Exit()
 {
-    cFloor.s_pModel .Destructor();
-    cFloor.s_pShader.Destructor();
+    CFloor.s_pModel .Destructor();
+    CFloor.s_pShader.Destructor();
 }
 
 
@@ -32,8 +32,8 @@ constructor()
     super();
 
     vec3.set(this.m_vSize, 100.0, 100.0, 1.0);
-    this.m_pModel       = cFloor.s_pModel;
-    this.m_pShader      = cFloor.s_pShader;
+    this.m_pModel       = CFloor.s_pModel;
+    this.m_pShader      = CFloor.s_pShader;
     this.m_apTexture[0] = new windTexture().Create(256, 256, false);
 
     this.m_sText        = "";
@@ -98,4 +98,4 @@ GetHoleSize()
 }
 
 
-} // class cFloor
+} // class CFloor

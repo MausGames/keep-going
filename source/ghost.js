@@ -7,7 +7,7 @@
 //*------------------------------------------------*//
 //////////////////////////////////////////////////////
 "use strict";
-class cGhostPart extends windObject {
+class CGhostPart extends windObject {
 
 
 // ****************************************************************
@@ -66,8 +66,8 @@ CancelAnimation()
 }
 
 
-} // class cGhostPart
-class cGhost {
+} // class CGhostPart
+class CGhost {
 
 
 // ****************************************************************
@@ -80,7 +80,7 @@ constructor(pOwner)
 
     for(let i = 0, ie = this.m_apPart.length; i < ie; ++i)
     {
-        this.m_apPart[i] = new cGhostPart(this.m_pOwner.m_pModel, this.m_pOwner.m_pShader);
+        this.m_apPart[i] = new CGhostPart(this.m_pOwner.m_pModel, this.m_pOwner.m_pShader);
     }
 }
 
@@ -117,4 +117,4 @@ Move()
 }
 
 
-} // class cGhost
+} // class CGhost

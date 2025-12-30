@@ -85,13 +85,13 @@ let g_pDeathSound = null;
 // ****************************************************************
 APP.Init = function()
 {
-    cPlayer.Init();
-    cEnemy .Init();
-    cFloor .Init();
+    CPlayer.Init();
+    CEnemy .Init();
+    CFloor .Init();
 
-    g_pPlayer = new cPlayer();
-    for(let i = 0; i < NUM_ENEMIES; ++i) g_apEnemy[i] = new cEnemy();
-    for(let i = 0; i < NUM_FLOORS;  ++i) g_apFloor[i] = new cFloor();
+    g_pPlayer = new CPlayer();
+    for(let i = 0; i < NUM_ENEMIES; ++i) g_apEnemy[i] = new CEnemy();
+    for(let i = 0; i < NUM_FLOORS;  ++i) g_apFloor[i] = new CFloor();
 
     g_apFloor[0].m_vHoleData[0] =  HOLE_DIST;
     g_apFloor[1].m_vHoleData[0] = -HOLE_DIST;
@@ -121,9 +121,9 @@ APP.Init = function()
 // ****************************************************************
 APP.Exit = function()
 {
-    cPlayer.Exit();
-    cEnemy .Exit();
-    cFloor .Exit();
+    CPlayer.Exit();
+    CEnemy .Exit();
+    CFloor .Exit();
 };
 
 
@@ -282,7 +282,7 @@ APP.KeyUp = function(iKey)
     {
         if(!g_pPlayer.m_bActive)
         {
-            g_pPlayer = new cPlayer();
+            g_pPlayer = new CPlayer();
             g_pPlayer.Move();
         }
 
