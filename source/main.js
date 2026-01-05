@@ -35,9 +35,9 @@ APP.SETTINGS.Stencil = false;
 
 
 // ****************************************************************
-const NUM_ENEMIES     = 40;
+const NUM_ENEMIES     = 64;
 const NUM_FLOORS      = 3;
-const NUM_LEVELS      = 10;
+const NUM_LEVELS      = 13;
 const HOLE_SIZE_MAX   = 7.0;
 const HOLE_SIZE_MIN   = 2.5;
 const HOLE_DIST       = 20.0;
