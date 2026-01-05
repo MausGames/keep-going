@@ -345,9 +345,9 @@ function Level10()
 
         pEnemy.m_nBehaviour = function()
         {
-            const fOffset = 3.0 * ((i % 12) + 1.5) * ((i < 12) ? 1.0 : -1.0);
+            const fOffset = 3.0 * ((i % 12) + 2.0) * ((i < 12) ? 1.0 : -1.0);
 
-            UTILS.Vec2Direction(WIND.V, fBase + (0.3*Math.PI * this.m_fTime * ((UTILS.ToUint(i / 4) % 2) ? -1.0 : 1.0)) * (iType ? 1.0 : -1.0));
+            UTILS.Vec2Direction(WIND.V, fBase + (0.3*Math.PI * this.m_fTime * ((UTILS.ToUint((i % 12) / 3) % 2) ? -1.0 : 1.0)) * (iType ? 1.0 : -1.0));
 
             vec2.set(this.m_vPosition, WIND.V[0] * fOffset, WIND.V[1] * fOffset);
         };
@@ -372,8 +372,8 @@ function Level11()
         vec2.copy(pEnemy.m_vPosition, NextHolePos());
         pEnemy.m_vPosition[0] -= pEnemy.m_vVelocity[0] * (i % 3) * 3.0;
         pEnemy.m_vPosition[1] -= pEnemy.m_vVelocity[1] * (i % 3) * 3.0;
-        pEnemy.m_vVelocity[0] *= 0.6;
-        pEnemy.m_vVelocity[1] *= 0.6;
+        pEnemy.m_vVelocity[0] *= 0.5;
+        pEnemy.m_vVelocity[1] *= 0.5;
 
         pEnemy.m_nBehaviour = function()
         {
