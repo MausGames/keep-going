@@ -81,7 +81,7 @@ DefaultBehaviour()
         vec2.normalize(WIND.V, this.m_vMove);
     }
 
-    const fBreak = Math.pow(1.0 - 1.0 * (1.0/60.0), WIND.g_fTime * 60.0);
+    const fBreak = UTILS.Friction(1.0, WIND.g_fTime);
 
     this.m_vVelocity[0] = (this.m_vVelocity[0] + WIND.V[0] * (40.0 * WIND.g_fTime)) * fBreak;
     this.m_vVelocity[1] = (this.m_vVelocity[1] + WIND.V[1] * (40.0 * WIND.g_fTime)) * fBreak;
