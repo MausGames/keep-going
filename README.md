@@ -21,9 +21,9 @@ by [Kevin MacLeod](https://incompetech.com) licensed under [CC BY](https://creat
 
 <table>
     <tr>
-        <td><a href="material/screenshots/keg_screen_004.jpg?raw=true"><img src="material/screenshots/keg_screen_004t.jpg"></a></td>
-        <td><a href="material/screenshots/keg_screen_005.jpg?raw=true"><img src="material/screenshots/keg_screen_005t.jpg"></a></td>
-        <td><a href="material/screenshots/keg_screen_006.jpg?raw=true"><img src="material/screenshots/keg_screen_006t.jpg"></a></td>
+        <td><a href="material/screenshots/keg_screen_004.jpg"><img src="material/screenshots/keg_screen_004t.jpg"></a></td>
+        <td><a href="material/screenshots/keg_screen_005.jpg"><img src="material/screenshots/keg_screen_005t.jpg"></a></td>
+        <td><a href="material/screenshots/keg_screen_006.jpg"><img src="material/screenshots/keg_screen_006t.jpg"></a></td>
     </tr>
 </table>
 
