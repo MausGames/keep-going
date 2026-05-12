@@ -4,6 +4,7 @@
     font-family: 'supply';
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
     src: url('../fonts/supply.woff2') format('woff2'),
          url('../fonts/supply.woff') format('woff'),
          url('../fonts/supply.ttf') format('truetype');
