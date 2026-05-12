@@ -34,10 +34,11 @@ RES.CFloor.s_sVertexShader =
 "}";
 
 RES.CFloor.s_sFragmentShader =
-"uniform sampler2D u_s2Texture;"                                                                                                           +
-"uniform vec3      u_v3HoleData;"                                                                                                          +
-"varying vec3      v_v3Relative;"                                                                                                          +
-"varying vec2      v_v2TexCoord;"                                                                                                          +
+"uniform mediump sampler2D u_s2Texture;"                                                                                                   +
+"uniform mediump vec3      u_v3HoleData;"                                                                                                  +
+""                                                                                                                                         +
+"varying vec3 v_v3Relative;"                                                                                                               +
+"varying vec2 v_v2TexCoord;"                                                                                                               +
 ""                                                                                                                                         +
 "void main()"                                                                                                                              +
 "{"                                                                                                                                        +
